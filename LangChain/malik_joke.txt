@@ -1,0 +1,37 @@
+messages:
+  -
+    content: Hello! Tell me a quick joke about malik caste of Pakistan.
+    additional_kwargs: {}
+    response_metadata: {}
+    type: human
+    name: None
+    id: 036d22c6-a741-4f2f-8204-5ff12b6539cc
+  -
+    content:
+      -
+        type: text
+        text: Here’s a lighthearted one:  Someone asked a Malik sahib, "Why do you introduce
+          yourself as 'Malik Sahib' even to your own children at home?"  He smiled and replied,
+          "Just making sure the upbringing includes proper protocol from day one!"
+        extras:
+          signature:
+            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
+    additional_kwargs: {}
+    response_metadata:
+      finish_reason: STOP
+      model_name: gemini-3.8-flash
+      safety_ratings: []
+      model_provider: google_genai
+    type: ai
+    name: None
+    id: lc_run--01a1f622-4692-7163-b70d-fb6388378c21-0
+    tool_calls: []
+    invalid_tool_calls: []
+    usage_metadata:
+      input_tokens: 21
+      output_tokens: 414
+      total_tokens: 435
+      input_token_details:
+        cache_read: 0
+      output_token_details:
+        reasoning: 360
