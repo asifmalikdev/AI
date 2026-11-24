@@ -1,0 +1,76 @@
+messages:
+  -
+    content: Explain Python generators.
+    additional_kwargs: {}
+    response_metadata: {}
+    type: human
+    name: None
+    id: fd06fa89-4568-4eca-a1c3-3c1b05169c12
+  -
+    content:
+      -
+        type: text
+        text: Think of a Python generator as a **"pause-and-resume" machine** for creating sequences
+          of data.   To understand them, it helps to first look at how normal Python functions work,
+          and then see the problem generators solve.  ---  ### The Problem: Normal Functions vs.
+          Lists Imagine you want to generate a list of the first 1 million numbers.   Using a normal
+          function, you might do this: ```python def get_numbers():     numbers = []     for i in
+          range(1_000_000):         numbers.append(i)     return numbers ``` **The issue:** This
+          function creates all 1 million numbers in memory **all at once** before returning them. If
+          you tried to generate billions of numbers, your computer would run out of RAM and crash.
+          ### The Solution: Generators A generator doesn't hold the entire sequence in memory.
+          Instead, it generates **one item at a time**, on the fly, only when you ask for it.  Here
+          is the same example
+      -
+        type: text
+        text:  as a generator: ```python def get_numbers_generator():     for i in range(1_000_000):
+          yield i  # <-- The magic word ``` **How it works:** 1. When you call
+          `get_numbers_generator()`, the code inside the function **doesn't actually run yet**. It
+          just returns a generator object. 2. When you ask for the next item (using a `for` loop or
+          the `next()` function), the generator wakes up, runs until it hits the `yield` keyword,
+          and **pauses**, returning the value you asked for. 3. It remembers its exact state (where
+          it was in the loop). The next time you ask for an item, it wakes up and continues right
+          from where it paused.  ---  ### How to Use a Generator  #### 1. Using a `for` loop (Most
+          common) Because generators are iterables, you can loop through them just like a list:
+          ```python my_gen = get_numbers_generator()  for num in my_gen:     print(num)     break  #
+          Just printing the first one ```  #### 2. Using `next()` You can manually pull items out of
+          a generator one by one using the built-in `next()` function: ```python gen =
+          get_numbers_generator()  print(next(gen))  # Outputs: 0 print(next(gen))  # Outputs: 1
+          print(next(gen))  # Outputs: 2 ``` *Note: Once a generator runs out of items, calling
+          `next()` again raises a `StopIteration` error.*  ---  ### Another Way: Generator
+          Expressions Just like list comprehensions, Python has **generator expressions**. They look
+          almost identical, but use parentheses `()` instead of square brackets `[]`.  **List
+          Comprehension (Uses memory immediately):** ```python my_list = [x * x for x in
+          range(1000)]  # Creates a list of 1000 items in RAM ```  **Generator Expression (Memory
+          efficient):** ```python my_gen = (x * x for x in range(1000))   # Creates a generator
+          object ```  ---  ### Why should you use Generators?  1. **Memory Efficiency:** They use
+          almost no memory. You can process a data file that is 100GB in size on a computer with
+          only 8GB of RAM. 2. **Infinite Streams:** You can create generators that produce endless
+          sequences (like a continuous stream of stock prices, Fibonacci numbers, or sensor data).
+          ```python    def infinite_fibo():        a, b = 0, 1        while True:            yield a
+          a, b = b, a + b    ``` 3. **Better Performance (Lazy Evaluation):** Python only does the
+          work of calculating the next item when you actually need it. If you break out of a loop
+          early, the generator never wastes time calculating the remaining items.  ### Summary:
+          `return` vs. `yield` * **`return`**: Sends a value back, **destroys** the function's local
+          state, and exits forever. * **`yield`**: Sends a value back, **pauses** the function, and
+          saves its state so it can be resumed later.
+        extras:
+          signature:
+            EpQBCpEBAWkUfRPs3AESbGLcPHPFLr8jvgt5iEM+tmXychgvtcCtZUjoFCqQCcF9QlLjBj+ZCgmJ/pCQp5NPuz5jO4WrU4cCweDV+YYbSK4TkxF9u5tldJZ1CDovzIiOYqzdfDGQqv7ONijeDhUlUYrbFfW2FcTxmi+HSzrj6l9VC1DzgUdMY1mlJGbe0UpMlBr5lNjLtA==
+    additional_kwargs: {}
+    response_metadata:
+      finish_reason: STOP
+      model_name: gemini-3.5-flash-lite
+      safety_ratings: []
+      model_provider: google_genai
+    type: ai
+    name: None
+    id: lc_run--01a20a87-9272-7651-8d9f-0151772faa2a-0
+    tool_calls: []
+    invalid_tool_calls: []
+    usage_metadata:
+      input_tokens: 11
+      output_tokens: 955
+      total_tokens: 966
+      input_token_details:
+        cache_read: 0
